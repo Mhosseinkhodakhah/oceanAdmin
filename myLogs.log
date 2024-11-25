@@ -1,0 +1,135 @@
+{
+  meta: {
+    req: {
+      url: '/admin/',
+      headers: {
+        'content-type': 'application/json',
+        'user-agent': 'PostmanRuntime/7.42.0',
+        accept: '*/*',
+        'postman-token': 'eea0f9a3-8068-4b50-8ca1-928bcf3bcb38',
+        host: 'localhost:6000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'content-length': '139'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/admin/',
+      query: {}
+    },
+    res: { statusCode: 404 },
+    responseTime: 26
+  },
+  level: 'warn',
+  message: 'POST /admin/ 404 26ms',
+  label: 'right meow!',
+  timestamp: '2024-11-25 14:51:38'
+}
+{
+  meta: {
+    req: {
+      url: '/admin/add-admin',
+      headers: {
+        'content-type': 'application/json',
+        'user-agent': 'PostmanRuntime/7.42.0',
+        accept: '*/*',
+        'postman-token': 'deedec1f-8c7b-4010-acc1-d37da7851a12',
+        host: 'localhost:6000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'content-length': '139'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/admin/add-admin',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 174
+  },
+  level: 'info',
+  message: 'POST /admin/add-admin 200 174ms',
+  label: 'right meow!',
+  timestamp: '2024-11-25 14:51:50'
+}
+{
+  meta: {
+    req: {
+      url: '/admin/login',
+      headers: {
+        'content-type': 'application/json',
+        'user-agent': 'PostmanRuntime/7.42.0',
+        accept: '*/*',
+        'postman-token': '6d7f5e96-b0cb-46d1-841b-ba3e76d5a56f',
+        host: 'localhost:6000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'content-length': '63'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/admin/login',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 182
+  },
+  level: 'info',
+  message: 'POST /admin/login 200 182ms',
+  label: 'right meow!',
+  timestamp: '2024-11-25 14:54:32'
+}
+{
+  meta: {
+    req: {
+      url: '/admin/add-admin',
+      headers: {
+        'content-type': 'application/json',
+        authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJhbGlyZXphIiwibGFzdE5hbWUiOiJwb3VydmFoaWQiLCJyb2xlIjoxLCJpYXQiOjE3MzI1MzM4NzIsImV4cCI6MTczMjU3NzA3Mn0.PdcmjWwPqAUU6SdVld6zv0Lme3y7cKLh8a0wwcDZAKk',
+        'user-agent': 'PostmanRuntime/7.42.0',
+        accept: '*/*',
+        'postman-token': '95955676-2792-44b4-8721-0e964d069231',
+        host: 'localhost:6000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'content-length': '128'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/admin/add-admin',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 203
+  },
+  level: 'info',
+  message: 'POST /admin/add-admin 200 203ms',
+  label: 'right meow!',
+  timestamp: '2024-11-25 14:55:55'
+}
+{
+  meta: {
+    req: {
+      url: '/admin/delete-admin/67445ec366ca385f055e6bf7',
+      headers: {
+        authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJhbGlyZXphIiwibGFzdE5hbWUiOiJwb3VydmFoaWQiLCJyb2xlIjoxLCJpYXQiOjE3MzI1MzM4NzIsImV4cCI6MTczMjU3NzA3Mn0.PdcmjWwPqAUU6SdVld6zv0Lme3y7cKLh8a0wwcDZAKk',
+        'user-agent': 'PostmanRuntime/7.42.0',
+        accept: '*/*',
+        'postman-token': '693cab29-fbc5-4870-9c9c-8c3acda7fbe8',
+        host: 'localhost:6000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive'
+      },
+      method: 'DELETE',
+      httpVersion: '1.1',
+      originalUrl: '/admin/delete-admin/67445ec366ca385f055e6bf7',
+      query: {}
+    },
+    res: { statusCode: 404 },
+    responseTime: 122
+  },
+  level: 'warn',
+  message: 'DELETE /admin/delete-admin/67445ec366ca385f055e6bf7 404 122ms',
+  label: 'right meow!',
+  timestamp: '2024-11-25 14:57:48'
+}
