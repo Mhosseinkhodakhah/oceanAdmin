@@ -65,19 +65,19 @@ app.listen(port, () => {
     console.log('content server is running successfully . . .');
 });
 app.use('/admin', router_1.default);
-app.use('/admin/users', (0, http_proxy_middleware_1.createProxyMiddleware)({
-    target: 'http://localhost:5000',
-    changeOrigin: true,
-    pathRewrite: {
-        [`^/`]: "",
-    },
-    plugins: plugins
-}));
-app.use('/admin/contents', (0, http_proxy_middleware_1.createProxyMiddleware)({
-    target: 'http://localhost:5001',
-    changeOrigin: true,
-    pathRewrite: {
-        [`^/`]: "",
-    },
-    plugins: plugins
-}));
+// app.use('/admin/users', createProxyMiddleware({
+//     target: 'http://localhost:5000',
+//     changeOrigin: true,
+//     pathRewrite: {
+//         [`^/`]: "",
+//     },
+//     plugins: plugins
+// }))
+// app.use('/admin/contents', createProxyMiddleware({
+//     target: 'http://localhost:5001',
+//     changeOrigin: true,
+//     pathRewrite: {
+//         [`^/`]: "",
+//     },
+//     plugins: plugins
+// }))

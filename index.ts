@@ -112,21 +112,21 @@ app.listen(port, () => {
 
 app.use('/admin', router)
 
-app.use('/admin/users', createProxyMiddleware({
-    target: 'http://localhost:5000',
-    changeOrigin: true,
-    pathRewrite: {
-        [`^/`]: "",
-    },
-    plugins: plugins
-}))
+// app.use('/admin/users', createProxyMiddleware({
+//     target: 'http://localhost:5000',
+//     changeOrigin: true,
+//     pathRewrite: {
+//         [`^/`]: "",
+//     },
+//     plugins: plugins
+// }))
 
 
-app.use('/admin/contents', createProxyMiddleware({
-    target: 'http://localhost:5001',
-    changeOrigin: true,
-    pathRewrite: {
-        [`^/`]: "",
-    },
-    plugins: plugins
-}))
+// app.use('/admin/contents', createProxyMiddleware({
+//     target: 'http://localhost:5001',
+//     changeOrigin: true,
+//     pathRewrite: {
+//         [`^/`]: "",
+//     },
+//     plugins: plugins
+// }))
