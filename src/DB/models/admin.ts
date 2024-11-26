@@ -4,7 +4,7 @@ import { admin } from "../../interfaces";
 
 
 const adminSchema = new Schema<admin>({
-    username : {type : String},
+    userName : {type : String},
     firstName : {type : String},
     lastName : {type : String},
     password : {type : String},

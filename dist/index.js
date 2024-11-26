@@ -64,7 +64,7 @@ const port = process.env.PORT || 5006;
 app.listen(port, () => {
     console.log('content server is running successfully . . .');
 });
-app.use('/admin', router_1.default);
+app.use('/app', router_1.default);
 // app.use('/admin/users', createProxyMiddleware({
 //     target: 'http://localhost:5000',
 //     changeOrigin: true,

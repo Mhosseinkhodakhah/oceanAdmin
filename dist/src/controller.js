@@ -20,9 +20,9 @@ const service = new adminServices_1.default();
 class adminController {
     login(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
-            const admin = yield admin_1.default.findOne({ username: req.body.username });
+            const admin = yield admin_1.default.findOne({ userName: req.body.userName });
             if (!admin) {
-                return next(new responseService_1.response(req, res, 'login admin', 404, 'username is incorrect!', null));
+                return next(new responseService_1.response(req, res, 'login admin', 404, 'userName is incorrect!', null));
             }
             const password = admin.password;
             const compare = yield bcrypt_1.default.compare(req.body.password, password);
@@ -30,7 +30,7 @@ class adminController {
                 return next(new responseService_1.response(req, res, 'login', 403, 'password is incorrect!', null));
             }
             const data = {
-                username: admin.username,
+                userName: admin.userName,
                 firstName: admin.firstName,
                 lastName: admin.lastName,
                 role: admin.role,

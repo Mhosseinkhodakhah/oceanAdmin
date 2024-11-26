@@ -9,9 +9,9 @@ const service = new adminServices()
 
 export default class adminController {
     async login(req: any, res: any, next: any) {
-        const admin = await adminModel.findOne({ username: req.body.username })
+        const admin = await adminModel.findOne({ userName: req.body.userName })
         if (!admin) {
-            return next(new response(req, res, 'login admin', 404, 'username is incorrect!', null))
+            return next(new response(req, res, 'login admin', 404, 'userName is incorrect!', null))
         }
         const password = admin.password
         const compare = await bcrypt.compare(req.body.password, password)
@@ -20,7 +20,7 @@ export default class adminController {
         }
 
         const data = {
-            username: admin.username,
+            userName: admin.userName,
             firstName: admin.firstName,
             lastName: admin.lastName,
             role: admin.role,

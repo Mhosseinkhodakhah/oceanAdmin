@@ -1,5 +1,5 @@
 export interface admin {
-    username: string,
+    userName: string,
     firstName: string,
     lastName: string,
     password: string,

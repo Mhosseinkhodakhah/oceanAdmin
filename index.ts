@@ -110,7 +110,7 @@ app.listen(port, () => {
     console.log('content server is running successfully . . .')
 })
 
-app.use('/admin', router)
+app.use('/app', router)
 
 // app.use('/admin/users', createProxyMiddleware({
 //     target: 'http://localhost:5000',
