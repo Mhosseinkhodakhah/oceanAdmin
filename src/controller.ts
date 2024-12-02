@@ -11,7 +11,7 @@ export default class adminController {
     async login(req: any, res: any, next: any) {
         const admin = await adminModel.findOne({ userName: req.body.userName })
         if (!admin) {
-            return next(new response(req, res, 'login admin', 404, 'userName is incorrect!', null))
+            return next(new response(req, res, 'login admin', 204, 'userName is incorrect!', null))
         }
         const password = admin.password
         const compare = await bcrypt.compare(req.body.password, password)
@@ -47,19 +47,25 @@ export default class adminController {
             return next(new response(req, res, 'add admin', 403, 'you can not add new admin! just super admin can add new admin', null))
         }
         const admin = await adminModel.findById(req.params.adminId)
-        if (!admin){
-            return next(new response(req, res, 'add admin', 404, 'this admin is not exist on database', null))
+        if (!admin) {
+            return next(new response(req, res, 'add admin', 204, 'this admin is not exist on database', null))
         }
         await admin.deleteOne()
         return next(new response(req, res, 'add admin', 200, null, 'admin deleted successfull'))
     }
 
-    
+
     async updateAdmin(req: any, res: any, next: any) {
         const admin = req.user.role;
         if (admin != 1) {
             return next(new response(req, res, 'add admin', 403, 'you can not add new admin! just super admin can add new admin', null))
         }
+    }
+
+    async checkToken(req: any, res: any, next: any) {
+        const id = req.user.id
+        const admin = await adminModel.findById(id)
+        return next(new response(req , res , 'check token' , 200 , null , {admin}))
     }
 
 

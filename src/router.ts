@@ -18,4 +18,6 @@ router.delete('/delete-admin/:adminId', adminAuth, controller.deleteAdmin)
 
 router.post('/update-admin', adminAuth, controller.updateAdmin)
 
+router.get('/check-token' , adminAuth , controller.checkToken)
+
 export default router;

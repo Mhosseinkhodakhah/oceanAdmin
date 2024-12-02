@@ -22,7 +22,7 @@ class adminController {
         return __awaiter(this, void 0, void 0, function* () {
             const admin = yield admin_1.default.findOne({ userName: req.body.userName });
             if (!admin) {
-                return next(new responseService_1.response(req, res, 'login admin', 404, 'userName is incorrect!', null));
+                return next(new responseService_1.response(req, res, 'login admin', 204, 'userName is incorrect!', null));
             }
             const password = admin.password;
             const compare = yield bcrypt_1.default.compare(req.body.password, password);
@@ -58,7 +58,7 @@ class adminController {
             }
             const admin = yield admin_1.default.findById(req.params.adminId);
             if (!admin) {
-                return next(new responseService_1.response(req, res, 'add admin', 404, 'this admin is not exist on database', null));
+                return next(new responseService_1.response(req, res, 'add admin', 204, 'this admin is not exist on database', null));
             }
             yield admin.deleteOne();
             return next(new responseService_1.response(req, res, 'add admin', 200, null, 'admin deleted successfull'));
@@ -70,6 +70,13 @@ class adminController {
             if (admin != 1) {
                 return next(new responseService_1.response(req, res, 'add admin', 403, 'you can not add new admin! just super admin can add new admin', null));
             }
+        });
+    }
+    checkToken(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = req.user.id;
+            const admin = yield admin_1.default.findById(id);
+            return next(new responseService_1.response(req, res, 'check token', 200, null, { admin }));
         });
     }
 }
