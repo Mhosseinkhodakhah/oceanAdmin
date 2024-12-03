@@ -54,6 +54,36 @@ export default class adminController {
         return next(new response(req, res, 'add admin', 200, null, 'admin deleted successfull'))
     }
 
+    async suspendAdmin(req: any, res: any, next: any) {
+        const admindRole = req.user.role;
+        if (admindRole != 1) {
+            return next(new response(req, res, 'add admin', 403, 'you can not add new admin! just super admin can add new admin', null))
+        }
+        const admin = await adminModel.findById(req.params.adminId)
+        if (!admin) {
+            return next(new response(req, res, 'add admin', 204, 'this admin is not exist on database', null))
+        }
+
+        if (admin.suspended) {
+            await admin.updateOne({suspended : false})
+            await admin.save()
+            return next(new response(req, res, 'unSuspend admin', 200, null, 'admin unSuspended successfull'))
+
+        } else {
+            await admin.updateOne({suspended : true})
+            await admin.save()
+            return next(new response(req, res, 'Suspend admin', 200, null, 'admin Suspended successfull'))
+
+        }
+    }
+
+
+    async getAllAdmins(req: any, res: any, next: any) {
+        const admins = await adminModel.find()
+        return next(new response(req, res, 'get all admins', 200, null, admins))
+    }
+
+
 
     async updateAdmin(req: any, res: any, next: any) {
         const admin = req.user.role;
@@ -65,7 +95,7 @@ export default class adminController {
     async checkToken(req: any, res: any, next: any) {
         const id = req.user.id
         const admin = await adminModel.findById(id)
-        return next(new response(req , res , 'check token' , 200 , null , {admin}))
+        return next(new response(req, res, 'check token', 200, null, { admin }))
     }
 
 

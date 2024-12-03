@@ -12,9 +12,13 @@ const controller = new adminController()
 
 router.post('/add-admin', adminAuth, controller.addAdmin)
 
+router.get('/get-all-admins' , adminAuth , controller.getAllAdmins)
+
 router.post('/login', controller.login)
 
 router.delete('/delete-admin/:adminId', adminAuth, controller.deleteAdmin)
+
+router.delete('/suspend-admin/:adminId', adminAuth, controller.suspendAdmin)
 
 router.post('/update-admin', adminAuth, controller.updateAdmin)
 

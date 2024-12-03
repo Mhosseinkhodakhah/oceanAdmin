@@ -64,6 +64,34 @@ class adminController {
             return next(new responseService_1.response(req, res, 'add admin', 200, null, 'admin deleted successfull'));
         });
     }
+    suspendAdmin(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const admindRole = req.user.role;
+            if (admindRole != 1) {
+                return next(new responseService_1.response(req, res, 'add admin', 403, 'you can not add new admin! just super admin can add new admin', null));
+            }
+            const admin = yield admin_1.default.findById(req.params.adminId);
+            if (!admin) {
+                return next(new responseService_1.response(req, res, 'add admin', 204, 'this admin is not exist on database', null));
+            }
+            if (admin.suspended) {
+                yield admin.updateOne({ suspended: false });
+                yield admin.save();
+                return next(new responseService_1.response(req, res, 'unSuspend admin', 200, null, 'admin unSuspended successfull'));
+            }
+            else {
+                yield admin.updateOne({ suspended: true });
+                yield admin.save();
+                return next(new responseService_1.response(req, res, 'Suspend admin', 200, null, 'admin Suspended successfull'));
+            }
+        });
+    }
+    getAllAdmins(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const admins = yield admin_1.default.find();
+            return next(new responseService_1.response(req, res, 'get all admins', 200, null, admins));
+        });
+    }
     updateAdmin(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             const admin = req.user.role;
