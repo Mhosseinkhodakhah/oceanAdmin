@@ -18,7 +18,7 @@ router.post('/login', controller.login)
 
 router.delete('/delete-admin/:adminId', adminAuth, controller.deleteAdmin)
 
-router.delete('/suspend-admin/:adminId', adminAuth, controller.suspendAdmin)
+router.put('/suspend-admin/:adminId', adminAuth, controller.suspendAdmin)
 
 router.post('/update-admin', adminAuth, controller.updateAdmin)
 
