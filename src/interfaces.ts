@@ -4,6 +4,7 @@ export interface admin {
     lastName: string,
     password: string,
     suspended : boolean,
+    phoneNumber:string
     role: number,    // 0 : admin    1 : superAdmin
 }
 

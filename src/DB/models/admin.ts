@@ -9,6 +9,7 @@ const adminSchema = new Schema<admin>({
     lastName : {type : String},
     password : {type : String},
     suspended : {type : Boolean , default : false},
+    phoneNumber : {type : String , default:''},
     role : {type : Number},    // 0 : admin    1 : superAdmin
 })
 
