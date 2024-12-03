@@ -63,14 +63,17 @@ export default class adminController {
         if (!admin) {
             return next(new response(req, res, 'add admin', 204, 'this admin is not exist on database', null))
         }
-
+        if ((admin._id).toString() == req.user.id) {
+            return next(new response(req, res, 'add admin', 204 , 'you cant suspend yourself . . .', null))
+        }
+        
         if (admin.suspended) {
-            await admin.updateOne({suspended : false})
+            await admin.updateOne({ suspended: false })
             await admin.save()
             return next(new response(req, res, 'unSuspend admin', 200, null, 'admin unSuspended successfull'))
 
         } else {
-            await admin.updateOne({suspended : true})
+            await admin.updateOne({ suspended: true })
             await admin.save()
             return next(new response(req, res, 'Suspend admin', 200, null, 'admin Suspended successfull'))
 

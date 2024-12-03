@@ -74,6 +74,9 @@ class adminController {
             if (!admin) {
                 return next(new responseService_1.response(req, res, 'add admin', 204, 'this admin is not exist on database', null));
             }
+            if ((admin._id).toString() == req.user.id) {
+                return next(new responseService_1.response(req, res, 'add admin', 204, 'you cant suspend yourself . . .', null));
+            }
             if (admin.suspended) {
                 yield admin.updateOne({ suspended: false });
                 yield admin.save();
