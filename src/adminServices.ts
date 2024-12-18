@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken'
 export default class adminServices {
 
     async tokenize(data: Partial<tokenizationInterface>): Promise<string> {
-        const token = jwt.sign(data, `${process.env.ACCESSKEY}`, { expiresIn: '12H' })
+        const token = jwt.sign(data, `${process.env.ACCESSKEY}`, { expiresIn: '72H' })
         return token
     }
 

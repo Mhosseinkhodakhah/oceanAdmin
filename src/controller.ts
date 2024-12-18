@@ -16,7 +16,7 @@ export default class adminController {
         const password = admin.password
         const compare = await bcrypt.compare(req.body.password, password)
         if (!compare) {
-            return next(new response(req, res, 'login', 403, 'password is incorrect!', null))
+            return next(new response(req, res, 'login', 403 , 'password is incorrect!', null))
         }
 
         const data = {
