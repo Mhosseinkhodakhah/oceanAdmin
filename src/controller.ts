@@ -11,7 +11,10 @@ export default class adminController {
     async login(req: any, res: any, next: any) {
         const admin = await adminModel.findOne({ userName: req.body.userName })
         if (!admin) {
-            return next(new response(req, res, 'login admin', 204, 'userName is incorrect!', null))
+            return next(new response(req, res, 'login admin', 404, 'userName is incorrect!', null))
+        }
+        if (admin.suspended){
+            return next(new response(req, res, 'login admin', 403, 'your suspended' , null))            
         }
         const password = admin.password
         const compare = await bcrypt.compare(req.body.password, password)
