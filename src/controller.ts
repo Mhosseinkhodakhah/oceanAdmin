@@ -13,9 +13,9 @@ export default class adminController {
         if (!admin) {
             return next(new response(req, res, 'login admin', 404, 'userName is incorrect!', null))
         }
-        if (admin.suspended){
-            return next(new response(req, res, 'login admin', 403, 'your suspended' , null))            
-        }
+        // if (admin.suspended){
+        //     return next(new response(req, res, 'login admin', 403, 'your suspended' , null))            
+        // }
         const password = admin.password
         const compare = await bcrypt.compare(req.body.password, password)
         if (!compare) {
